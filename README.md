@@ -11,4 +11,4 @@ A simple responsive web app that recommends travel destinations based on categor
 - HTML, CSS, Vanilla JavaScript
 
 ## Live Demo
-https://hussaintalha367.github.io/travel-recommendation-app/
+https://hussaintalha367.github.io/travel-web-app/
