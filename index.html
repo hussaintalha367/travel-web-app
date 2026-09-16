@@ -10,10 +10,23 @@
   <header>
     <h1>🌍 Travel Recommendation</h1>
     <p>Find your perfect destination based on your preferences.</p>
+
+    <!-- NAVIGATION BAR WITH 6 ELEMENTS -->
     <nav class="main-nav">
-      <a href="index.html">Home</a> |
-      <a href="about.html">About Us</a> |
-      <a href="contact.html">Contact</a>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="contact.html" class="nav-link">Contact Us</a>
+
+      <input
+        type="text"
+        id="searchInput"
+        class="nav-search"
+        placeholder="Search destinations..."
+        aria-label="Search destinations"
+      />
+
+      <button id="searchBtn" class="nav-btn">Search</button>
+      <button id="clearBtn"  class="nav-btn nav-btn-clear">Clear</button>
     </nav>
   </header>
 

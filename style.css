@@ -171,3 +171,61 @@ footer {
   color: #0a7d00;
   font-weight: 600;
 }
+/* Navigation bar with 6 elements */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: .4rem .6rem;
+  border-radius: 6px;
+  transition: background .2s;
+}
+
+.nav-link:hover {
+  background: rgba(255,255,255,.15);
+  text-decoration: none;
+}
+
+.nav-search {
+  padding: .45rem .75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: .95rem;
+  min-width: 200px;
+  outline: none;
+}
+
+.nav-btn {
+  padding: .45rem 1rem;
+  background: #ffffff;
+  color: #0d6efd;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.nav-btn:hover {
+  background: #e7f0ff;
+}
+
+.nav-btn-clear {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.nav-btn-clear:hover {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+}
