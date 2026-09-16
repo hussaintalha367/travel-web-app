@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel Recommendation App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌍 Travel Recommendation</h1>
+    <p>Find your perfect destination based on your preferences.</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <label>
+        Category:
+        <select id="category">
+          <option value="all">All</option>
+          <option value="beach">Beach</option>
+          <option value="mountain">Mountain</option>
+          <option value="city">City</option>
+          <option value="historical">Historical</option>
+        </select>
+      </label>
+
+      <label>
+        Max Budget ($):
+        <input type="number" id="budget" value="3000" min="0" step="100" />
+      </label>
+
+      <button id="recommendBtn">Recommend</button>
+    </section>
+
+    <section id="results" class="results"></section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Travel Recommendation App</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
