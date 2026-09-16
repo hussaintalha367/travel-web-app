@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Travel Recommendation App</title>
-  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- ================= HEADER / NAV BAR (6 ELEMENTS) ================= -->
   <header>
     <h1>🌍 Travel Recommendation</h1>
     <p>Find your perfect destination based on your preferences.</p>
 
-    <!-- NAVIGATION BAR WITH 6 ELEMENTS -->
     <nav class="main-nav">
       <a href="index.html" class="nav-link">Home</a>
       <a href="about.html" class="nav-link">About Us</a>
@@ -31,34 +31,112 @@
   </header>
 
   <main>
-    <section class="controls">
-      <label>
-        Category:
-        <select id="category">
-          <option value="all">All</option>
-          <option value="beach">Beach</option>
-          <option value="mountain">Mountain</option>
-          <option value="city">City</option>
-          <option value="historical">Historical</option>
-        </select>
-      </label>
 
-      <label>
-        Max Budget ($):
-        <input type="number" id="budget" value="3000" min="0" step="100" />
-      </label>
+    <!-- ================= HOME PAGE ================= -->
+    <section id="page-home" class="page">
+      <div class="controls">
+        <label>
+          Category:
+          <select id="category">
+            <option value="all">All</option>
+            <option value="beach">Beach</option>
+            <option value="mountain">Mountain</option>
+            <option value="city">City</option>
+            <option value="historical">Historical</option>
+          </select>
+        </label>
 
-      <button id="recommendBtn">Recommend</button>
+        <label>
+          Max Budget ($):
+          <input type="number" id="budget" value="3000" min="0" step="100" />
+        </label>
+
+        <button id="recommendBtn">Recommend</button>
+      </div>
+
+      <div id="results" class="results"></div>
     </section>
 
-    <section id="results" class="results"></section>
+    <!-- ================= ABOUT US PAGE ================= -->
+    <section id="page-about" class="page">
+      <div class="about-block">
+        <h2>Our Company</h2>
+        <p>
+          <strong>Travel Recommendation Co.</strong> is a travel-tech startup founded in 2025.
+          Our mission is to help travelers discover destinations that match their interests
+          and budget. We use simple, transparent recommendations — no ads, no sponsorships.
+        </p>
+        <ul>
+          <li><strong>Founded:</strong> 2025</li>
+          <li><strong>Headquarters:</strong> Remote-first (global team)</li>
+          <li><strong>Mission:</strong> Make travel discovery personal, easy, and honest.</li>
+          <li><strong>Contact:</strong> team@travelrecommendation.example</li>
+        </ul>
+      </div>
+
+      <div class="about-block">
+        <h2>Guidance for Team Members</h2>
+        <ol>
+          <li><strong>Code style:</strong> Use 2-space indentation in HTML/CSS/JS. Keep functions small and named clearly.</li>
+          <li><strong>Branching:</strong> Never push directly to <code>main</code>. Create a feature branch: <code>git checkout -b feature/your-task</code>.</li>
+          <li><strong>Commits:</strong> Write meaningful messages like <code>add budget filter</code>, not <code>update</code>.</li>
+          <li><strong>Pull requests:</strong> Open a PR for every change, request one reviewer, and wait for approval before merging.</li>
+          <li><strong>Testing:</strong> Before pushing, test locally using Live Server.</li>
+          <li><strong>Data changes:</strong> New destinations go in the <code>destinations</code> array — never hard-code elsewhere.</li>
+          <li><strong>Accessibility:</strong> Every image needs an <code>alt</code> attribute. Use semantic tags (<code>header</code>, <code>main</code>, <code>section</code>).</li>
+          <li><strong>Communication:</strong> Post daily updates in the team channel. Raise blockers immediately.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT US PAGE ================= -->
+    <section id="page-contact" class="page">
+      <div class="about-block">
+        <h2>Contact Information</h2>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:team@travelrecommendation.example">team@travelrecommendation.example</a></li>
+          <li><strong>Support:</strong> <a href="mailto:support@travelrecommendation.example">support@travelrecommendation.example</a></li>
+          <li><strong>Phone:</strong> +1 (555) 123-4567</li>
+          <li><strong>Address:</strong> 123 Wanderlust Ave, Remote City, Earth</li>
+          <li><strong>Hours:</strong> Mon–Fri, 9:00 AM – 6:00 PM (UTC)</li>
+        </ul>
+      </div>
+
+      <div class="about-block">
+        <h2>Send Us a Message</h2>
+        <form id="contactForm" class="contact-form">
+          <label>
+            Your Name *
+            <input type="text" id="name" name="name" required placeholder="Jane Doe" />
+          </label>
+
+          <label>
+            Your Email *
+            <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+          </label>
+
+          <label>
+            Subject *
+            <input type="text" id="subject" name="subject" required placeholder="Question about Bali" />
+          </label>
+
+          <label>
+            Message *
+            <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
+          </label>
+
+          <button type="submit">Send Message</button>
+        </form>
+
+        <p id="formStatus" class="form-status" aria-live="polite"></p>
+      </div>
+    </section>
+
   </main>
 
   <footer>
     <p>&copy; 2025 Travel Recommendation App</p>
   </footer>
 
-  <script src="data.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>
