@@ -1,3 +1,4 @@
+/* =================== ELEMENTS =================== */
 const resultsEl    = document.getElementById("results");
 const categoryEl   = document.getElementById("category");
 const budgetEl     = document.getElementById("budget");
@@ -7,7 +8,7 @@ const searchInput  = document.getElementById("searchInput");
 const searchBtn    = document.getElementById("searchBtn");
 const clearBtn     = document.getElementById("clearBtn");
 
-// ------- Render -------
+/* =================== RENDER =================== */
 function render(list) {
   if (!list.length) {
     resultsEl.innerHTML = "<p>No destinations match your preferences.</p>";
@@ -19,13 +20,14 @@ function render(list) {
       <div class="card-body">
         <span class="tag">${d.category}</span>
         <h3>${d.name}</h3>
+        <p class="country">📍 ${d.country}</p>
         <p class="price">$${d.price.toLocaleString()}</p>
       </div>
     </article>
   `).join("");
 }
 
-// ------- Main filter logic (combines category + budget + search) -------
+/* =================== FILTERS =================== */
 function applyFilters() {
   const cat    = categoryEl.value;
   const budget = Number(budgetEl.value) || Infinity;
@@ -34,20 +36,24 @@ function applyFilters() {
   const filtered = destinations.filter(d => {
     const matchesCategory = (cat === "all" || d.category === cat);
     const matchesBudget   = d.price <= budget;
-    const matchesSearch   = !query || d.name.toLowerCase().includes(query);
+
+    const matchesSearch =
+      !query ||
+      d.name.toLowerCase().includes(query) ||
+      d.category.toLowerCase().includes(query) ||
+      (d.country && d.country.toLowerCase().includes(query)) ||
+      (query === "country" && d.country); // "country" matches any destination with a country
+
     return matchesCategory && matchesBudget && matchesSearch;
   });
 
   render(filtered);
 }
 
-// ------- Event listeners -------
+/* =================== EVENT LISTENERS =================== */
 recommendBtn.addEventListener("click", applyFilters);
-
-// Search button triggers the filter (search term included)
 searchBtn.addEventListener("click", applyFilters);
 
-// Pressing Enter inside search box also searches
 searchInput.addEventListener("keydown", e => {
   if (e.key === "Enter") {
     e.preventDefault();
@@ -55,13 +61,12 @@ searchInput.addEventListener("keydown", e => {
   }
 });
 
-// Clear button resets search box, category, budget and re-renders all
 clearBtn.addEventListener("click", () => {
-  searchInput.value  = "";
-  categoryEl.value   = "all";
-  budgetEl.value     = 3000;
+  searchInput.value = "";
+  categoryEl.value  = "all";
+  budgetEl.value    = 5000;
   render(destinations);
 });
 
-// Initial render
+/* =================== INIT =================== */
 window.addEventListener("DOMContentLoaded", () => render(destinations));

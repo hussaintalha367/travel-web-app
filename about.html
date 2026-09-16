@@ -7,22 +7,22 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
- <header>
-  <h1>🌍 About Us</h1>
-  <p>Learn more about our team and how we work.</p>
-  <nav class="main-nav">
-    <a href="index.html">Home</a> |
-    <a href="about.html">About Us</a> |
-    <a href="contact.html">Contact Us</a>
-  </nav>
-</header>
+  <header>
+    <h1>🌍 About Us</h1>
+    <p>Learn more about our team and how we work.</p>
+
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link active">About Us</a>
+      <a href="contact.html" class="nav-link">Contact Us</a>
+
+      <input type="text" class="nav-search" placeholder="Search destinations..." aria-label="Search destinations" />
+      <button class="nav-btn" onclick="window.location.href='index.html'">Search</button>
+      <button class="nav-btn nav-btn-clear" onclick="window.location.href='index.html'">Clear</button>
+    </nav>
+  </header>
 
   <main>
-    <nav class="back-link">
-      <a href="index.html">← Back to Home</a>
-    </nav>
-
-    <!-- COMPANY INFO -->
     <section class="about-block">
       <h2>Our Company</h2>
       <p>
@@ -38,7 +38,6 @@
       </ul>
     </section>
 
-    <!-- TEAM GUIDANCE -->
     <section class="about-block">
       <h2>Guidance for Team Members</h2>
       <ol>
@@ -46,7 +45,7 @@
         <li><strong>Branching:</strong> Never push directly to <code>main</code>. Create a feature branch: <code>git checkout -b feature/your-task</code>.</li>
         <li><strong>Commits:</strong> Write meaningful messages like <code>add budget filter</code>, not <code>update</code>.</li>
         <li><strong>Pull requests:</strong> Open a PR for every change, request one reviewer, and wait for approval before merging.</li>
-        <li><strong>Testing:</strong> Before pushing, test locally at <code>http://localhost</code> using Live Server.</li>
+        <li><strong>Testing:</strong> Before pushing, test locally using Live Server.</li>
         <li><strong>Data changes:</strong> New destinations go in <code>data.js</code> only — never hard-code in <code>script.js</code>.</li>
         <li><strong>Accessibility:</strong> Every image needs an <code>alt</code> attribute. Use semantic tags (<code>header</code>, <code>main</code>, <code>section</code>).</li>
         <li><strong>Communication:</strong> Post daily updates in the team channel. Raise blockers immediately.</li>

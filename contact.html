@@ -10,14 +10,19 @@
   <header>
     <h1>📬 Contact Us</h1>
     <p>We'd love to hear from you — questions, feedback, or partnership ideas.</p>
+
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="contact.html" class="nav-link active">Contact Us</a>
+
+      <input type="text" class="nav-search" placeholder="Search destinations..." aria-label="Search destinations" />
+      <button class="nav-btn" onclick="window.location.href='index.html'">Search</button>
+      <button class="nav-btn nav-btn-clear" onclick="window.location.href='index.html'">Clear</button>
+    </nav>
   </header>
 
   <main>
-    <nav class="back-link">
-      <a href="index.html">← Back to Home</a>
-    </nav>
-
-    <!-- CONTACT INFO -->
     <section class="about-block">
       <h2>Contact Information</h2>
       <ul>
@@ -29,7 +34,6 @@
       </ul>
     </section>
 
-    <!-- CONTACT FORM -->
     <section class="about-block">
       <h2>Send Us a Message</h2>
       <form id="contactForm" class="contact-form">
@@ -65,7 +69,6 @@
   </footer>
 
   <script>
-    // Build a mailto: link from form values and open the user's email client
     document.getElementById("contactForm").addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -74,18 +77,14 @@
       const subject = document.getElementById("subject").value.trim();
       const message = document.getElementById("message").value.trim();
 
-      const to      = "team@travelrecommendation.example";
-      const mailSubject = encodeURIComponent(`[Contact] ${subject}`);
-      const mailBody = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\n\n${message}`
+      const to = "team@travelrecommendation.example";
+      const mailSubject = encodeURIComponent("[Contact] " + subject);
+      const mailBody    = encodeURIComponent(
+        "Name: " + name + "\nEmail: " + email + "\n\n" + message
       );
 
-      const mailtoLink = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
+      window.location.href = "mailto:" + to + "?subject=" + mailSubject + "&body=" + mailBody;
 
-      // Open the default email client
-      window.location.href = mailtoLink;
-
-      // Show status
       document.getElementById("formStatus").textContent =
         "✅ Your email client should now open with the message pre-filled. If not, email us directly at " + to;
     });
