@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Travel Recommendation App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📬 Contact Us</h1>
+    <p>We'd love to hear from you — questions, feedback, or partnership ideas.</p>
+  </header>
+
+  <main>
+    <nav class="back-link">
+      <a href="index.html">← Back to Home</a>
+    </nav>
+
+    <!-- CONTACT INFO -->
+    <section class="about-block">
+      <h2>Contact Information</h2>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:team@travelrecommendation.example">team@travelrecommendation.example</a></li>
+        <li><strong>Support:</strong> <a href="mailto:support@travelrecommendation.example">support@travelrecommendation.example</a></li>
+        <li><strong>Phone:</strong> +1 (555) 123-4567</li>
+        <li><strong>Address:</strong> 123 Wanderlust Ave, Remote City, Earth</li>
+        <li><strong>Hours:</strong> Mon–Fri, 9:00 AM – 6:00 PM (UTC)</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="about-block">
+      <h2>Send Us a Message</h2>
+      <form id="contactForm" class="contact-form">
+        <label>
+          Your Name *
+          <input type="text" id="name" name="name" required placeholder="Jane Doe" />
+        </label>
+
+        <label>
+          Your Email *
+          <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+        </label>
+
+        <label>
+          Subject *
+          <input type="text" id="subject" name="subject" required placeholder="Question about Bali" />
+        </label>
+
+        <label>
+          Message *
+          <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
+        </label>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <p id="formStatus" class="form-status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Travel Recommendation App</p>
+  </footer>
+
+  <script>
+    // Build a mailto: link from form values and open the user's email client
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name    = document.getElementById("name").value.trim();
+      const email   = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const to      = "team@travelrecommendation.example";
+      const mailSubject = encodeURIComponent(`[Contact] ${subject}`);
+      const mailBody = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\n${message}`
+      );
+
+      const mailtoLink = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
+
+      // Open the default email client
+      window.location.href = mailtoLink;
+
+      // Show status
+      document.getElementById("formStatus").textContent =
+        "✅ Your email client should now open with the message pre-filled. If not, email us directly at " + to;
+    });
+  </script>
+</body>
+</html>
